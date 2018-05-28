@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>Jo Ken Po</title>
+</head>
+<body>
+ 
+	<p id="computador">
+    </p>
+    <p id="usuario">
+    </p>
+    <p id="resultado"></p>
+</body>
+</html>
+<script type="text/javascript">
+    alert("Regras do jogo:");
+    alert("Pedra ganha de tesoura\n Tesoura ganha do papel\n Papel ganha da pedra\n")
+    alert("Vamos jogar? Clique em OK");
+    var escolhausuario = prompt("Voce escolhe: pedra, papel ou tesoura?");
+    var escolhaia = Math.random();
+    if (escolhaia < 0.34) {
+        escolhaia = "pedra";
+    } else if (escolhaia <= 0.67) {
+        escolhaia = "papel";
+    } else {
+        escolhaia = "tesoura"; 
+    }
+    document.getElementById("usuario").innerHTML = "Sua jogada: " + escolhausuario;
+    document.getElementById("computador").innerHTML = "Jogada do computador: " + escolhaia;
+
+
+    var comparar = function (escolha1, escolha2) {
+        if (escolha1 === escolha2)
+            return ("O resultado é um empate!");
+        else if (escolha1 === "pedra") {
+            if (escolha2 === "tesoura")
+                return ("pedra vence");
+            else {
+                return ("papel vence");
+            }
+        }
+        else if (escolha1 === "papel") {
+            if (escolha2 === "pedra")
+                return "papel vence";
+            else {
+                return "tesoura vence";
+            }
+        }
+        else if (escolha1 === "tesoura") {
+            if (escolha2 === "pedra")
+                return "pedra vence";
+            else {
+                return "tesoura vence";
+            }
+        }
+    };
+    document.getElementById("resultado").innerHTML = "Resultado: " + comparar(escolhausuario, escolhaia);
+
+
+</script>
